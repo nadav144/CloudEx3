@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var fs = require('fs');
 
-var textfilename = "textfile.txt";
+var textfilename = "textfile.log";
 
 // create a file only file logger
 var SimpleNodeLogger = require('simple-node-logger'),
@@ -26,16 +26,6 @@ router.all('/', function(req, res, next) {
   log.info(ip + ";" + userAgent + ";" + req.method);
   res.render('index', { title: 'Express' });
 });
-//
-// router.all('/newfile', function (req, res, next) {
-//     fs.writeFile(textfilename, "Hey there!", function(err) {
-//         if(err) {
-//             return console.log(err);
-//         }
-//
-//         console.log("The file was saved!");
-//     });
-// });
 
 router.all ('/text', function (req, res, next) {
     console.log("IN PUT");
@@ -116,7 +106,7 @@ function logFileSize() {
     var stats = fs.statSync(textfilename);
     var fileSizeInBytes = stats["size"];
     //Convert the file size to megabytes (optional)
-    var fileSizeInKilobytes = fileSizeInBytes / 1024.0
+    var fileSizeInKilobytes = fileSizeInBytes / 1024.0;
     log.info("logsize:" + fileSizeInKilobytes.toString());
 }
 
