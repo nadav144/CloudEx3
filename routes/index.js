@@ -5,7 +5,7 @@ var router = express.Router();
 var SimpleNodeLogger = require('simple-node-logger'),
     opts = {
       logFilePath:'project.log',
-      timestampFormat:'YYYY-MM-DD HH:mm:ss.SSS'
+      timestampFormat:'YYYY MM DD HH:mm:ss'
     },
     log = SimpleNodeLogger.createSimpleLogger( opts );
 
