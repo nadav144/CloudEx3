@@ -2,7 +2,14 @@ var express = require('express');
 var router = express.Router();
 
 // create a file only file logger
-var log = require('simple-node-logger').createSimpleFileLogger('project.log');
+var SimpleNodeLogger = require('simple-node-logger'),
+    opts = {
+      logFilePath:'project.log',
+      timestampFormat:'YYYY-MM-DD HH:mm:ss.SSS'
+    },
+    log = SimpleNodeLogger.createSimpleLogger( opts );
+
+
 
 /* GET home page. */
 router.all('/', function(req, res, next) {
